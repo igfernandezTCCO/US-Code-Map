@@ -1,5 +1,4 @@
-const codeData = {
-  "California": {
+"California": {
     "buildingCode": "2022 CA Building Code, Title 24",
     "modelCode": "IBC 2021",
     "asce7": "ASCE 7-16 + Supplements 1, 2, & 3",
@@ -89,6 +88,15 @@ const codeData = {
     "aciTms": "TMS 402/602-16",
     "nds": "NDS-18 / SDPWS-21"
   },
+  "New Jersey": {
+  buildingCode: "2021 IBC NJ Edition",
+  modelCode: "IBC 2021",
+  asce7: "ASCE 7-16 + Supplement No.1",
+  aisc: "AISC 360-16 (15th Ed, blue book)",
+  aiscSeismic: "AISC 341-16 + Supplement 1 (3rd Ed, blue book)",
+  aciTms: "TMS 402/602-16",
+  nds: "NDS-18 / SDPWS-21"
+},
   "New York": {
     "buildingCode": "2020 Building Code of NYS",
     "modelCode": "IBC 2018",
