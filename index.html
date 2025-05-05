@@ -78,6 +78,41 @@
         option.value = name;
         option.textContent = name;
         document.getElementById("state-select").appendChild(option);
+
+        layer.on("click", function () {
+          if (activeStateLayer) {
+            geoLayer.resetStyle(activeStateLayer);
+          }
+
+          layer.setStyle({
+            color: "#006400",
+            weight: 3,
+            fillColor: "#90ee90",
+            fillOpacity: 0.5
+          });
+
+          map.fitBounds(layer.getBounds());
+          layer.openPopup();
+          activeStateLayer = layer;
+
+          document.getElementById("state-select").value = name;
+
+          const info = codeData[name];
+          const div = document.getElementById("code-info");
+          if (info) {
+            div.innerHTML = `
+              <strong>Building Code:</strong> ${info.buildingCode}<br>
+              <strong>Model Code:</strong> ${info.modelCode}<br>
+              <strong>ASCE 7:</strong> ${info.asce7}<br>
+              <strong>AISC:</strong> ${info.aisc}<br>
+              <strong>AISC Seismic:</strong> ${info.aiscSeismic}<br>
+              <strong>ACI/TMS:</strong> ${info.aciTms}<br>
+              <strong>NDS:</strong> ${info.nds}
+            `;
+          } else {
+            div.innerHTML = "<em>No code data available.</em>";
+          }
+        });
       }
     }).addTo(map);
 
